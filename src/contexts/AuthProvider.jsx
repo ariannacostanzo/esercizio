@@ -1,10 +1,11 @@
 /* eslint-disable react/prop-types */
 import { createContext, useContext, useState } from "react";
+import useStorage from "../hooks/useStorage";
 
 const AuthContext = createContext();
 
 const AuthProvider = ({children}) => {
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [isLoggedIn, setIsLoggedIn] = useStorage(false, 'isLoggedIn');
 
     const login = () => {
         setIsLoggedIn(true);
